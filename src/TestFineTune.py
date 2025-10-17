@@ -100,18 +100,12 @@ def main():
         remove_columns=["instruction", "input", "output", "text"],
     )
 
-    # ------------------------------------------------
-    # ↓↓↓ 【重要】 追加するコード（ラベルの作成） ↓↓↓
-    # ------------------------------------------------
     def create_labels(examples):
         # 因果言語モデリング（CLM）では、input_ids自体が正解ラベルとなります
         examples["labels"] = examples["input_ids"]
         return examples
 
     tokenized_datasets = tokenized_datasets.map(create_labels, batched=True)
-    # ------------------------------------------------
-    # ↑↑↑ 【重要】 追加するコード（ラベルの作成） ↑↑↑
-    # ------------------------------------------------
 
     # 訓練用と評価用に分割
     tokenized_datasets = tokenized_datasets.train_test_split(test_size=0.1)
