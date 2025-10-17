@@ -1,0 +1,8 @@
+# requirements.txt
+tensorflow
+numpy
+pandas # データ処理のため
+huggingface-hub # モデルダウンロードやアップロードのため
+datasets # データセット操作のため
+transformers
+peft # 軽量なファインチューニング（LoRAなど）のため
