@@ -1,1 +1,1 @@
-run-lua.sh text eol=lf
+run-lua.sh text eol=cllf
